@@ -1,0 +1,19 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# Node / PHP / Composer
+node_modules/
+vendor/
+composer.lock
+
+# Build / cache
+dist/
+build/
+.cache/

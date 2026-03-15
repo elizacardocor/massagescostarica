@@ -1,0 +1,23 @@
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# Canonical host + HTTPS
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.tantramassagecostarica\.com$ [NC]
+RewriteRule ^ https://tantramassagecostarica.com%{REQUEST_URI} [R=301,L]
+
+# Canonical home slug
+RewriteRule ^$ https://tantramassagecostarica.com/tantra-massage-costa-rica [R=301,L]
+
+# Redirect removed duplicate service URL
+RewriteRule ^services/tantra-massage-costa-rica/?$ /services/tantric-massage-costa-rica [R=301,L]
+
+# Redirect .html to extensionless URL
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ %1 [R=301,L]
+
+# Serve extensionless requests from .html files when they exist
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
