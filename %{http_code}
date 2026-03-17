@@ -1,0 +1,11 @@
+HTTP/1.1 301 Moved Permanently
+Connection: Keep-Alive
+Keep-Alive: timeout=5, max=100
+Date: Tue, 17 Mar 2026 06:08:30 GMT
+Server: LiteSpeed
+Location: https://www.tantramassagecostarica.com/blog
+platform: hostinger
+panel: hpanel
+Content-Security-Policy: upgrade-insecure-requests
+
+n-

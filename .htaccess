@@ -2,13 +2,18 @@ Options -MultiViews
 RewriteEngine On
 RewriteBase /
 
+# Redirect root directly to canonical slug (single hop for any host/scheme)
+RewriteRule ^$ https://tantramassagecostarica.com/tantra-massage-costa-rica/ [R=301,L]
+
+# Ensure /blog and main slug use canonical host+https and trailing slash in one hop
+RewriteRule ^blog$ https://tantramassagecostarica.com/blog/ [R=301,L]
+RewriteRule ^blog/(.+[^/])$ https://tantramassagecostarica.com/blog/$1/ [R=301,L]
+RewriteRule ^tantra-massage-costa-rica$ https://tantramassagecostarica.com/tantra-massage-costa-rica/ [R=301,L]
+
 # Canonical host + HTTPS
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\.tantramassagecostarica\.com$ [NC]
 RewriteRule ^ https://tantramassagecostarica.com%{REQUEST_URI} [R=301,L]
-
-# Canonical home slug
-RewriteRule ^$ https://tantramassagecostarica.com/tantra-massage-costa-rica [R=301,L]
 
 # Redirect removed duplicate service URL
 RewriteRule ^services/tantra-massage-costa-rica/?$ /services/tantric-massage-costa-rica [R=301,L]

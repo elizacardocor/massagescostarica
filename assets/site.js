@@ -43,3 +43,72 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+/* Promo carousel behavior */
+(function(){
+  const carousel = document.getElementById('promo-carousel');
+  if(!carousel) return;
+
+  const track = carousel.querySelector('.carousel-track');
+  const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+  const prev = carousel.querySelector('.carousel-prev');
+  const next = carousel.querySelector('.carousel-next');
+  const indicators = Array.from(carousel.querySelectorAll('.carousel-indicators button'));
+  let index = 0;
+  let timer = null;
+  const interval = 5000;
+
+  function goTo(i){
+    index = (i + slides.length) % slides.length;
+    const offset = -index * 100;
+    track.style.transform = `translateX(${offset}%)`;
+    slides.forEach((s,si)=> s.setAttribute('aria-hidden', si!==index ? 'true' : 'false'));
+    indicators.forEach((btn,bi)=> btn.setAttribute('aria-selected', bi===index ? 'true' : 'false'));
+  }
+
+  function nextSlide(){ goTo(index+1); }
+  function prevSlide(){ goTo(index-1); }
+
+  next.addEventListener('click', ()=>{ nextSlide(); resetTimer(); });
+  prev.addEventListener('click', ()=>{ prevSlide(); resetTimer(); });
+
+  indicators.forEach((btn,i)=> btn.addEventListener('click', ()=>{ goTo(i); resetTimer(); }));
+
+  function startTimer(){ timer = setInterval(nextSlide, interval); }
+  function stopTimer(){ if(timer){ clearInterval(timer); timer = null; } }
+  function resetTimer(){ stopTimer(); startTimer(); }
+
+  carousel.addEventListener('mouseenter', stopTimer);
+  carousel.addEventListener('focusin', stopTimer);
+  carousel.addEventListener('mouseleave', startTimer);
+  carousel.addEventListener('focusout', startTimer);
+
+  // initialize (start with the first slide)
+  goTo(index);
+  startTimer();
+})();
+
+/* Play/pause videos only when visible (used on profile cards) */
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  const opts = { root: null, rootMargin: '0px', threshold: 0.5 };
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      const v = entry.target;
+      if(entry.isIntersecting){
+        if(v.paused) v.play().catch(()=>{});
+      } else {
+        if(!v.paused) v.pause();
+      }
+    });
+  }, opts);
+
+  document.addEventListener('DOMContentLoaded', ()=>{
+    document.querySelectorAll('video[data-observe="true"]').forEach(v=>{
+      // Ensure muted for autoplay policies
+      v.muted = true;
+      v.playsInline = true;
+      io.observe(v);
+    });
+  });
+})();
