@@ -458,15 +458,19 @@ h3 {
     width: 100%;
   }
   .video-crop {
-    /* make thumbnail fluid on small screens */
+    /* keep the cropped aspect ratio on small screens using an aspect-ratio container */
     width: 100%;
-    height: auto;
+    height: 0;
+    padding-top: 150%; /* 480/320 = 1.5 -> 150% */
+    position: relative;
+    overflow: hidden;
   }
   .video-crop video {
-    position: relative;
-    top: 0;
-    height: auto;
+    position: absolute;
+    top: -10px; /* keep the same upward crop to hide watermark */
+    left: 0;
     width: 100%;
+    height: calc(100% + 10px);
     object-fit: cover;
   }
   /* listing cards stack on small screens */
