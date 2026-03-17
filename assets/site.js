@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
   startTimer();
 })();
 
+
 /* Play/pause videos only when visible (used on profile cards) */
 (function(){
   if(!('IntersectionObserver' in window)) return;
