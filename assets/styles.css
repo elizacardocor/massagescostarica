@@ -402,8 +402,9 @@ h3 {
 /* Video crop and inline layout for masseuses profiles */
 .video-crop {
   overflow: hidden;
-  width: 320px; /* fixed thumbnail width */
-  height: 480px; /* fixed thumbnail height */
+  width: 320px; /* ideal thumbnail width */
+  max-width: 100%;
+  height: 480px; /* ideal thumbnail height */
   border-radius: 12px;
   display: block;
   position: relative;
@@ -444,6 +445,45 @@ h3 {
 }
 .profile-body {
   flex: 1 1 auto;
+}
+
+/* Responsive: stack profile media above body on small screens */
+@media (max-width: 720px) {
+  .profile-grid {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .profile-media {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .video-crop {
+    /* make thumbnail fluid on small screens */
+    width: 100%;
+    height: auto;
+  }
+  .video-crop video {
+    position: relative;
+    top: 0;
+    height: auto;
+    width: 100%;
+    object-fit: cover;
+  }
+  /* listing cards stack on small screens */
+  .profiles .card a {
+    flex-direction: column;
+    align-items: center;
+  }
+  .profiles .card .thumb {
+    flex: 0 0 auto;
+    width: 60%;
+    max-width: 320px;
+  }
+  .profiles .card h2,
+  .profiles .card .excerpt {
+    display: block;
+    text-align: center;
+  }
 }
 
 /* Make profile subsection headings match masseuses listing titles */
