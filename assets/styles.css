@@ -86,9 +86,9 @@ img {
 .topbar-inner {
   min-height: 38px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 1rem;
-  font-size: .9rem;
+  font-size: 1.05rem;
   padding-inline: clamp(.5rem, 2vw, 1rem) !important;
 }
 
@@ -98,7 +98,8 @@ img {
 
 .topbar-inner a {
   color: #ffffff;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: .2px;
 }
 
 .topbar-mail {
@@ -336,7 +337,7 @@ header {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.08fr .92fr;
+  grid-template-columns: 40% 1fr;
   gap: 2.1rem;
   align-items: stretch;
 }
@@ -506,6 +507,12 @@ h3 {
   position: relative;
   overflow: hidden;
   border-radius: 14px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.promo-carousel .promo-link {
+  display: block;
+  width: 100%;
 }
 .promo-carousel .carousel-track {
   display: flex;
@@ -525,8 +532,7 @@ h3 {
 }
 .promo-carousel .promo-link img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
   border-radius: 12px;
 }
@@ -617,17 +623,25 @@ h3 {
   background: linear-gradient(180deg, #fff8fb 0%, #fff3f8 100%);
   border-color: #edc8d8;
   box-shadow: 0 16px 36px rgba(101, 20, 52, 0.18);
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .hero .card img {
   transition: transform .35s ease;
 }
 
+.hero .card video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 18px;
+  transition: transform .35s ease;
+}
+
 .hero .card:hover img {
+  transform: scale(1.02);
+}
+
+.hero .card:hover video {
   transform: scale(1.02);
 }
 
@@ -836,8 +850,8 @@ aside {
   right: 18px;
   bottom: 18px;
   z-index: 60;
-  width: 64px;
-  height: 64px;
+  width: 96px;
+  height: 96px;
   display: inline-grid;
   place-items: center;
   padding: 0;
@@ -862,8 +876,8 @@ aside {
 }
 
 .wa-icon {
-  width: 34px;
-  height: 34px;
+  width: 51px;
+  height: 51px;
   display: inline-grid;
   place-items: center;
   background: transparent;
@@ -872,8 +886,8 @@ aside {
 
 .wa-icon::before {
   content: "";
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
   display: block;
   background-repeat: no-repeat;
   background-position: center;
@@ -918,11 +932,12 @@ strong {
   }
 
   .topbar-inner {
-    justify-content: flex-end;
+    justify-content: center;
     gap: .75rem;
     min-height: 36px;
     flex-wrap: wrap;
     padding: .2rem .6rem;
+    font-size: .98rem;
   }
 
   .nav {
@@ -1003,9 +1018,9 @@ strong {
   }
 
   .topbar-inner {
-    justify-content: flex-end;
+    justify-content: center;
     gap: .55rem;
-    font-size: .8rem;
+    font-size: .92rem;
     min-height: 34px;
     padding-inline: .45rem;
   }
@@ -1044,7 +1059,7 @@ strong {
   .wa-float {
     right: 12px;
     bottom: 12px;
-    width: 58px;
-    height: 58px;
+    width: 87px;
+    height: 87px;
   }
 }
