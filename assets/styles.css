@@ -342,6 +342,12 @@ header {
   align-items: stretch;
 }
 
+@media (max-width: 1100px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 .kicker {
   display: inline-block;
   background: linear-gradient(90deg, #fae8f1 0%, #f8edd9 100%);
