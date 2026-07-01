@@ -2,6 +2,59 @@ Options -MultiViews
 RewriteEngine On
 RewriteBase /
 
+# Cloudflare IP whitelist - only allow requests from Cloudflare proxies
+<IfModule mod_authz_core.c>
+    Require ip 173.245.48.0/20
+    Require ip 103.21.244.0/22
+    Require ip 103.22.200.0/22
+    Require ip 103.31.4.0/22
+    Require ip 104.16.0.0/13
+    Require ip 104.24.0.0/14
+    Require ip 108.162.192.0/18
+    Require ip 131.0.72.0/22
+    Require ip 141.101.64.0/18
+    Require ip 162.158.0.0/15
+    Require ip 172.64.0.0/13
+    Require ip 188.114.96.0/20
+    Require ip 190.93.240.0/20
+    Require ip 197.234.240.0/22
+    Require ip 198.41.128.0/17
+    Require ip 2400:cb00::/32
+    Require ip 2606:4700::/32
+    Require ip 2803:f800::/32
+    Require ip 2405:b500::/32
+    Require ip 2405:8100::/32
+    Require ip 2a06:98c0::/29
+    Require ip 2c0f:f248::/32
+</IfModule>
+
+<IfModule !mod_authz_core.c>
+    Order Deny,Allow
+    Deny from all
+    Allow from 173.245.48.0/20
+    Allow from 103.21.244.0/22
+    Allow from 103.22.200.0/22
+    Allow from 103.31.4.0/22
+    Allow from 104.16.0.0/13
+    Allow from 104.24.0.0/14
+    Allow from 108.162.192.0/18
+    Allow from 131.0.72.0/22
+    Allow from 141.101.64.0/18
+    Allow from 162.158.0.0/15
+    Allow from 172.64.0.0/13
+    Allow from 188.114.96.0/20
+    Allow from 190.93.240.0/20
+    Allow from 197.234.240.0/22
+    Allow from 198.41.128.0/17
+    Allow from 2400:cb00::/32
+    Allow from 2606:4700::/32
+    Allow from 2803:f800::/32
+    Allow from 2405:b500::/32
+    Allow from 2405:8100::/32
+    Allow from 2a06:98c0::/29
+    Allow from 2c0f:f248::/32
+</IfModule>
+
 # Redirect root directly to canonical slug (single hop for any host/scheme)
 RewriteRule ^$ https://tantramassagecostarica.com/tantra-massage-costa-rica/ [R=301,L]
 
