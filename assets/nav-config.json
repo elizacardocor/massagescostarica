@@ -1,0 +1,20 @@
+{
+  "phone": {
+    "number": "+506 87699448",
+    "href": "tel:+50687699448"
+  },
+  "social": [
+    {
+      "name": "Instagram",
+      "href": "https://www.instagram.com/cr_.mobilemassage/"
+    },
+    {
+      "name": "TikTok",
+      "href": "https://www.tiktok.com/@cr_.mobilemassage?is_from_webapp=1&sender_device=pc"
+    },
+    {
+      "name": "Facebook",
+      "href": "https://www.facebook.com/crmobilemassage2/?locale=es_LA"
+    }
+  ]
+}
