@@ -589,6 +589,11 @@ h3 {
   overflow: hidden;
   border-radius: 14px;
   margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
 }
 .promo-carousel .promo-link {
   display: block;
@@ -597,6 +602,8 @@ h3 {
   overflow: hidden;
 }
 .promo-carousel .carousel-track {
+  order: 1;
+  width: 100%;
   display: flex;
   gap: 0;
   transition: transform 420ms ease;
@@ -644,48 +651,49 @@ h3 {
   font-weight: 600;
 }
 .carousel-prev, .carousel-next {
-  position: absolute;
-  top: auto;
-  bottom: 12px;
+  position: static;
   transform: none;
-  background: rgba(255,255,255,0.9);
-  border: none;
+  background: #141414;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   width: 34px;
   height: 34px;
   border-radius: 999px;
-  box-shadow: 0 6px 18px rgba(37, 12, 26, 0.16);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
   cursor: pointer;
   font-size: 1.15rem;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
-.carousel-prev { left: 12px; }
-.carousel-next { right: 12px; }
+.carousel-prev { order: 2; }
+.carousel-next { order: 4; }
 .carousel-indicators {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 12px;
+  order: 3;
+  position: static;
+  transform: none;
   display: flex;
   gap: 8px;
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 .2rem;
 }
 .carousel-indicators button {
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  border: none;
-  background: rgba(255,255,255,0.6);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
 .carousel-indicators button[aria-selected="true"] {
-  background: var(--accent);
+  background: #141414;
 }
 
 @media (max-width: 720px) {
   .promo-overlay { left: .6rem; bottom: .6rem; font-size: .9rem; }
-  .carousel-prev, .carousel-next { width: 30px; height: 30px; bottom: 10px; font-size: 1rem; }
+  .carousel-prev, .carousel-next { width: 30px; height: 30px; font-size: 1rem; }
 }
 
 /* on very small screens, shift top images a bit more to keep subject visible */
