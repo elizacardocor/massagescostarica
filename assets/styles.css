@@ -645,16 +645,17 @@ h3 {
 }
 .carousel-prev, .carousel-next {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: auto;
+  bottom: 12px;
+  transform: none;
   background: rgba(255,255,255,0.9);
   border: none;
-  width: 44px;
-  height: 44px;
+  width: 34px;
+  height: 34px;
   border-radius: 999px;
   box-shadow: 0 6px 18px rgba(37, 12, 26, 0.16);
   cursor: pointer;
-  font-size: 1.6rem;
+  font-size: 1.15rem;
   line-height: 1;
 }
 .carousel-prev { left: 12px; }
@@ -684,7 +685,7 @@ h3 {
 
 @media (max-width: 720px) {
   .promo-overlay { left: .6rem; bottom: .6rem; font-size: .9rem; }
-  .carousel-prev, .carousel-next { width: 38px; height: 38px; }
+  .carousel-prev, .carousel-next { width: 30px; height: 30px; bottom: 10px; font-size: 1rem; }
 }
 
 /* on very small screens, shift top images a bit more to keep subject visible */
