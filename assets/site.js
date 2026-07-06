@@ -280,7 +280,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const indicators = Array.from(carousel.querySelectorAll('.carousel-indicators button'));
   let index = 0;
   let timer = null;
-  const interval = 5000;
+  const interval = 9000;
 
   function goTo(i){
     index = (i + slides.length) % slides.length;
