@@ -1,3 +1,32 @@
+(() => {
+  const GA4_ID = "G-2TWMWCBW59";
+  const ADS_ID = "AW-972379565";
+
+  if (window.__tmcAnalyticsInitialized) {
+    return;
+  }
+  window.__tmcAnalyticsInitialized = true;
+
+  window.dataLayer = window.dataLayer || [];
+  if (typeof window.gtag !== "function") {
+    window.gtag = function gtag() {
+      window.dataLayer.push(arguments);
+    };
+    window.gtag("js", new Date());
+  }
+
+  const hasGtagScript = !!document.querySelector('script[src*="googletagmanager.com/gtag/js"]');
+  if (!hasGtagScript) {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`;
+    document.head.appendChild(script);
+  }
+
+  window.gtag("config", GA4_ID);
+  window.gtag("config", ADS_ID);
+})();
+
 document.addEventListener("DOMContentLoaded", async () => {
   const mobileNavQuery = window.matchMedia("(max-width: 960px)");
 
