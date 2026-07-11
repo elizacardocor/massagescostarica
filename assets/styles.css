@@ -730,6 +730,28 @@ h3 {
   transform: scale(1.02);
 }
 
+.videos-grid {
+  display: flex;
+  gap: 1.1rem;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.videos-grid .card {
+  flex: 1;
+  min-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .videos-grid {
+    flex-direction: column;
+  }
+  
+  .videos-grid .card {
+    min-width: 100%;
+  }
+}
+
 .grid {
   display: grid;
   gap: 1.1rem;
