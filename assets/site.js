@@ -173,6 +173,32 @@ document.addEventListener("DOMContentLoaded", async () => {
     return "home";
   }
 
+  function translatePathname(pathname, targetLocale) {
+    const currentLocale = detectLocale(pathname);
+    if (currentLocale === targetLocale) {
+      return pathname;
+    }
+
+    let translatedPath = pathname;
+
+    if (currentLocale === "en" && targetLocale === "es") {
+      // English to Spanish
+      translatedPath = translatedPath.replace(/^\/tantra-massage-costa-rica\/?/, "/es/");
+      translatedPath = translatedPath.replace(/^\/masseuses\//, "/es/masajistas/");
+      translatedPath = translatedPath.replace(/^\/services\//, "/es/servicios/");
+      translatedPath = translatedPath.replace(/^\/blog\//, "/es/blog/");
+      translatedPath = translatedPath.replace(/^\/$/, "/es/");
+    } else if (currentLocale === "es" && targetLocale === "en") {
+      // Spanish to English
+      translatedPath = translatedPath.replace(/^\/es\/masajistas\//, "/masseuses/");
+      translatedPath = translatedPath.replace(/^\/es\/servicios\//, "/services/");
+      translatedPath = translatedPath.replace(/^\/es\/blog\//, "/blog/");
+      translatedPath = translatedPath.replace(/^\/es\/?$/, "/tantra-massage-costa-rica/");
+    }
+
+    return translatedPath;
+  }
+
   function buildSocialMarkup(className = "social-link") {
     return NAV_CONFIG.social
       .map(
@@ -182,7 +208,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       .join("");
   }
 
-  function buildNavLinksMarkup(localeCfg, activeKey) {
+  function buildNavLinksMarkup(localeCfg, activeKey, pathname) {
     const linksMarkup = localeCfg.links
       .map((item) => {
         const activeClass = item.key === activeKey ? " class=\"active\"" : "";
@@ -192,7 +218,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const switchCode = localeCfg.switchCode;
     const switchFlag = NAV_CONFIG.flags[switchCode] || "";
-    const switchMarkup = `<a class="nav-lang nav-lang-${switchCode.toLowerCase()}" href="${localeCfg.switchHref}"><span class="lang-flag">${switchFlag}</span><span class="lang-code">${switchCode}</span></a>`;
+    const targetLocale = switchCode === "ES" ? "es" : "en";
+    const switchHref = translatePathname(pathname, targetLocale);
+    const switchMarkup = `<a class="nav-lang nav-lang-${switchCode.toLowerCase()}" href="${switchHref}"><span class="lang-flag">${switchFlag}</span><span class="lang-code">${switchCode}</span></a>`;
 
     return `${linksMarkup}${switchMarkup}`;
   }
@@ -220,7 +248,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         </div>
         <button type="button" class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="${navId}"><span></span><span></span><span></span></button>
         <nav class="nav-links" id="${navId}" aria-label="${localeCfg.navLabel}">
-          ${buildNavLinksMarkup(localeCfg, activeKey)}
+          ${buildNavLinksMarkup(localeCfg, activeKey, window.location.pathname)}
         </nav>
       </div>
     `;
