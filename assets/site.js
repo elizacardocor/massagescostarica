@@ -179,20 +179,74 @@ document.addEventListener("DOMContentLoaded", async () => {
       return pathname;
     }
 
+    // Slug maps: es slug → en slug
+    const BLOG_SLUGS = {
+      "mejores-experiencias-bienestar-costa-rica": "best-wellness-experiences-costa-rica",
+      "beneficios-karsai-nei-tsang-salud": "benefits-karsai-nei-tsang-health",
+      "masaje-sanacion-energia-tantrica-explicado": "tantric-healing-energy-massage-explained",
+      "que-es-masaje-tantra-guia-visitantes-costa-rica": "what-is-tantra-massage-guide-visitors-costa-rica"
+    };
+    const BLOG_SLUGS_EN_TO_ES = Object.fromEntries(Object.entries(BLOG_SLUGS).map(([es, en]) => [en, es]));
+
+    const SERVICE_SLUGS = {
+      "masaje-karsai-nei-tsang": "karsai-nei-tsang-massage",
+      "masaje-tantrico-costa-rica": "tantric-massage-costa-rica",
+      "retiro-bienestar-costa-rica": "tantra-retreat-costa-rica",
+      "terapia-masaje-bienestar-personalizado": "tantric-massage-therapy",
+      "terapia-sanacion-tantrica": "tantric-healing-therapy"
+    };
+    const SERVICE_SLUGS_EN_TO_ES = Object.fromEntries(Object.entries(SERVICE_SLUGS).map(([es, en]) => [en, es]));
+
+    const MASSEUSE_SLUGS = {
+      "terapeuta-wellness": "wellness-therapist"
+    };
+    const MASSEUSE_SLUGS_EN_TO_ES = Object.fromEntries(Object.entries(MASSEUSE_SLUGS).map(([es, en]) => [en, es]));
+
     let translatedPath = pathname;
 
     if (currentLocale === "en" && targetLocale === "es") {
-      // English to Spanish
+      // Blog slugs
+      translatedPath = translatedPath.replace(/^\/blog\/([^/]+)(\/?)$/, (_, slug, trail) => {
+        const esSlug = BLOG_SLUGS_EN_TO_ES[slug] || slug;
+        return `/es/blog/${esSlug}/`;
+      });
+      // Service slugs
+      translatedPath = translatedPath.replace(/^\/services\/([^/]+)(\/?)$/, (_, slug, trail) => {
+        const esSlug = SERVICE_SLUGS_EN_TO_ES[slug] || slug;
+        return `/es/servicios/${esSlug}/`;
+      });
+      // Masseuse slugs
+      translatedPath = translatedPath.replace(/^\/masseuses\/([^/]+)(\/?)$/, (_, slug, trail) => {
+        const esSlug = MASSEUSE_SLUGS_EN_TO_ES[slug] || slug;
+        return `/es/masajistas/${esSlug}/`;
+      });
+      // Section roots and home
+      translatedPath = translatedPath.replace(/^\/blog\/?$/, "/es/blog/");
+      translatedPath = translatedPath.replace(/^\/services\/?$/, "/es/servicios/");
+      translatedPath = translatedPath.replace(/^\/masseuses\/?$/, "/es/masajistas/");
       translatedPath = translatedPath.replace(/^\/tantra-massage-costa-rica\/?/, "/es/");
-      translatedPath = translatedPath.replace(/^\/masseuses\//, "/es/masajistas/");
-      translatedPath = translatedPath.replace(/^\/services\//, "/es/servicios/");
-      translatedPath = translatedPath.replace(/^\/blog\//, "/es/blog/");
       translatedPath = translatedPath.replace(/^\/$/, "/es/");
+
     } else if (currentLocale === "es" && targetLocale === "en") {
-      // Spanish to English
-      translatedPath = translatedPath.replace(/^\/es\/masajistas\//, "/masseuses/");
-      translatedPath = translatedPath.replace(/^\/es\/servicios\//, "/services/");
-      translatedPath = translatedPath.replace(/^\/es\/blog\//, "/blog/");
+      // Blog slugs
+      translatedPath = translatedPath.replace(/^\/es\/blog\/([^/]+)(\/?)$/, (_, slug, trail) => {
+        const enSlug = BLOG_SLUGS[slug] || slug;
+        return `/blog/${enSlug}/`;
+      });
+      // Service slugs
+      translatedPath = translatedPath.replace(/^\/es\/servicios\/([^/]+)(\/?)$/, (_, slug, trail) => {
+        const enSlug = SERVICE_SLUGS[slug] || slug;
+        return `/services/${enSlug}/`;
+      });
+      // Masseuse slugs
+      translatedPath = translatedPath.replace(/^\/es\/masajistas\/([^/]+)(\/?)$/, (_, slug, trail) => {
+        const enSlug = MASSEUSE_SLUGS[slug] || slug;
+        return `/masseuses/${enSlug}/`;
+      });
+      // Section roots and home
+      translatedPath = translatedPath.replace(/^\/es\/blog\/?$/, "/blog/");
+      translatedPath = translatedPath.replace(/^\/es\/servicios\/?$/, "/services/");
+      translatedPath = translatedPath.replace(/^\/es\/masajistas\/?$/, "/masseuses/");
       translatedPath = translatedPath.replace(/^\/es\/?$/, "/tantra-massage-costa-rica/");
     }
 
