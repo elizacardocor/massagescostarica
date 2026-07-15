@@ -10,18 +10,52 @@
   <!-- hreflang tags para SEO multiidioma -->
   <link rel="alternate" hreflang="en" href="https://tantramassagecostarica.com/services/tantric-massage-costa-rica" />
   <link rel="alternate" hreflang="es" href="https://tantramassagecostarica.com/es/servicios/masaje-tantrico-costa-rica/" />
+  <meta property="og:video" content="https://tantramassagecostarica.com/assets/videos/lingam-massage.webm" />
+  <meta property="og:video" content="https://tantramassagecostarica.com/assets/videos/lingam-massage.mp4" />
+  <meta property="og:video:type" content="video/webm" />
+  <meta property="og:video:type" content="video/mp4" />
+  <meta property="og:video:width" content="1280" />
+  <meta property="og:video:height" content="720" />
   <link rel="stylesheet" href="../../assets/styles.css?v=20260714" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Lingam Massage Session Preview in Costa Rica",
+    "description": "Preview video of a mindful tantric massage session in Costa Rica with professional and private setup.",
+    "thumbnailUrl": "https://tantramassagecostarica.com/assets/promo/sesiones-lingam-knt.jpeg",
+    "uploadDate": "2026-07-15",
+    "contentUrl": "https://tantramassagecostarica.com/assets/videos/lingam-massage.mp4",
+    "embedUrl": "https://tantramassagecostarica.com/services/tantric-massage-costa-rica",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Tantra Massage Costa Rica",
+      "url": "https://tantramassagecostarica.com"
+    }
+  }
+  </script>
   <style>
     .service-inline-layout {
-      font-size: 0;
       margin: 16px 0 24px;
     }
 
+    .service-media-row {
+      font-size: 0;
+    }
+
     .service-inline-image,
-    .service-inline-text {
+    .service-inline-video {
       display: inline-block;
       width: 50%;
       vertical-align: top;
+      box-sizing: border-box;
+      padding: 12px;
+      margin: 0;
+    }
+
+    .service-inline-text {
+      display: block;
+      width: 100%;
       box-sizing: border-box;
       font-size: 1rem;
       padding: 12px;
@@ -33,6 +67,13 @@
       width: 100%;
       height: auto;
       margin: 0;
+    }
+
+    .service-inline-video video {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
     }
 
     .info-link-btn {
@@ -59,6 +100,7 @@
       }
 
       .service-inline-image,
+      .service-inline-video,
       .service-inline-text {
         padding: 48px;
       }
@@ -75,6 +117,7 @@
 
     @media (max-width: 900px) {
       .service-inline-image,
+      .service-inline-video,
       .service-inline-text {
         display: block;
         width: 100%;
@@ -96,8 +139,16 @@
       <p class="meta">Service page · Updated March 2026</p>
       <h1>Tantric Massage Costa Rica</h1>
       <section class="service-inline-layout">
-        <div class="service-inline-image">
-          <img src="/assets/promo/sesiones-lingam-knt.jpeg" loading="lazy" alt="Tantric massage in Costa Rica for relaxation and body awareness" />
+        <div class="service-media-row">
+          <div class="service-inline-video">
+            <video controls playsinline preload="metadata" poster="/assets/promo/yoni-massage-san-jose.jpeg" aria-label="Lingam massage video preview in Costa Rica">
+              <source src="/assets/videos/lingam-massage.webm" type="video/webm" />
+              <source src="/assets/videos/lingam-massage.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="service-inline-image">
+            <img src="/assets/promo/sesiones-lingam-knt.jpeg" loading="lazy" alt="Tantric massage in Costa Rica for relaxation and body awareness" />
+          </div>
         </div>
         <div class="service-inline-text">
           <p>
