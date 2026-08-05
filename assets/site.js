@@ -224,6 +224,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       translatedPath = translatedPath.replace(/^\/blog\/?$/, "/es/blog/");
       translatedPath = translatedPath.replace(/^\/services\/?$/, "/es/servicios/");
       translatedPath = translatedPath.replace(/^\/masseuses\/?$/, "/es/masajistas/");
+      translatedPath = translatedPath.replace(/^\/work-with-us\/?$/, "/es/trabaja-con-nosotros/");
       translatedPath = translatedPath.replace(/^\/tantra-massage-costa-rica\/?/, "/es/");
       translatedPath = translatedPath.replace(/^\/$/, "/es/");
 
@@ -247,6 +248,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       translatedPath = translatedPath.replace(/^\/es\/blog\/?$/, "/blog/");
       translatedPath = translatedPath.replace(/^\/es\/servicios\/?$/, "/services/");
       translatedPath = translatedPath.replace(/^\/es\/masajistas\/?$/, "/masseuses/");
+      translatedPath = translatedPath.replace(/^\/es\/trabaja-con-nosotros\/?$/, "/work-with-us/");
       translatedPath = translatedPath.replace(/^\/es\/?$/, "/tantra-massage-costa-rica/");
     }
 
