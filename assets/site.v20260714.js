@@ -181,7 +181,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Slug maps: es slug → en slug
     const BLOG_SLUGS = {
-      "mejores-experiencias-bienestar-costa-rica": "best-wellness-experiences-costa-rica",
       "beneficios-karsai-nei-tsang-salud": "benefits-karsai-nei-tsang-health",
       "masaje-sanacion-energia-tantrica-explicado": "tantric-healing-energy-massage-explained",
       "que-es-masaje-tantra-guia-visitantes-costa-rica": "what-is-tantra-massage-guide-visitors-costa-rica"
@@ -191,9 +190,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const SERVICE_SLUGS = {
       "masaje-karsai-nei-tsang": "karsai-nei-tsang-massage",
       "masaje-tantrico-costa-rica": "tantric-massage-costa-rica",
-      "retiro-bienestar-costa-rica": "tantra-retreat-costa-rica",
       "terapia-masaje-bienestar-personalizado": "tantric-massage-therapy",
-      "terapia-sanacion-tantrica": "tantric-healing-therapy"
     };
     const SERVICE_SLUGS_EN_TO_ES = Object.fromEntries(Object.entries(SERVICE_SLUGS).map(([es, en]) => [en, es]));
 
