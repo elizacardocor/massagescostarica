@@ -1,6 +1,11 @@
 (() => {
   const GA4_ID = "G-2TWMWCBW59";
   const ADS_ID = "AW-972379565";
+  const isLocalPreview = ["localhost", "127.0.0.1", "::1"].includes(window.location.hostname) || window.location.protocol === "file:";
+
+  if (isLocalPreview) {
+    return;
+  }
 
   if (window.__tmcAnalyticsInitialized) {
     return;

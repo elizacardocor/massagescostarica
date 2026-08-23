@@ -494,19 +494,46 @@ h3 {
   z-index: 1;
 }
 
-/* List card: place video and text side-by-side */
+/* Listing cards: mobile-first stacked layout */
 .profiles .card a {
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
+  display: block;
 }
 .profiles .card .thumb {
-  flex: 0 0 320px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+.profiles .card .thumb img {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 350px;
 }
 .profiles .card h2,
 .profiles .card .excerpt {
-  display: inline-block;
-  vertical-align: top;
+  display: block;
+}
+
+/* Tablet and desktop: keep title on top, then image + text inline */
+@media (min-width: 721px) {
+  .profiles .card h2 {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+  .profiles .card .thumb {
+    display: inline-block;
+    width: 31%;
+    max-width: none;
+    vertical-align: top;
+    margin-right: 2%;
+  }
+  .profiles .card .excerpt {
+    display: inline-block;
+    width: 66%;
+    vertical-align: top;
+    margin: 0;
+  }
 }
 
 /* Profile page layout: media and body inline */
@@ -550,18 +577,16 @@ h3 {
   }
   /* listing cards stack on small screens */
   .profiles .card a {
-    flex-direction: column;
-    align-items: center;
+    display: block;
   }
   .profiles .card .thumb {
-    flex: 0 0 auto;
-    width: 60%;
-    max-width: 320px;
+    width: 100%;
+    max-width: 100%;
   }
   .profiles .card h2,
   .profiles .card .excerpt {
     display: block;
-    text-align: center;
+    text-align: left;
   }
 }
 
@@ -906,11 +931,11 @@ footer[data-site-footer] {
 }
 
 .article-layout .service-inline-image {
-  width: 38%;
+  /* width: 38%; */
 }
 
 .article-layout .service-inline-text {
-  width: 62%;
+  /* width: 62%; */
 }
 
 .service-inline-image img {
