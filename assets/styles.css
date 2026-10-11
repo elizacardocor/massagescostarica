@@ -728,6 +728,20 @@ h3 {
   border-color: #e8c3d2;
 }
 
+#services.hero {
+  display: grid;
+  gap: 1rem;
+  padding: 0 0 2rem;
+}
+
+#services.hero > h2 {
+  margin-bottom: 0;
+}
+
+#services.hero > .card {
+  margin: 0;
+}
+
 .hero .card {
   padding: .6rem;
   background: linear-gradient(180deg, #fff8fb 0%, #fff3f8 100%);
