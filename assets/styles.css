@@ -602,6 +602,10 @@ h3 {
 }
 
 /* Promo carousel styles */
+.promo-banner {
+  padding: var(--panel-pad-y) var(--panel-pad-x);
+}
+
 .promo-carousel {
   position: relative;
   overflow: hidden;
@@ -794,6 +798,40 @@ h3 {
 .grid {
   display: grid;
   gap: 1.1rem;
+}
+
+.home-gallery {
+  padding: var(--panel-pad-y) var(--panel-pad-x) 1.25rem;
+}
+
+.home-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.home-gallery-item {
+  margin: 0;
+  border: 1px solid rgba(122, 31, 68, 0.12);
+  border-radius: 14px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(86, 31, 57, 0.08);
+}
+
+.home-gallery-item img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.home-gallery-item figcaption {
+  padding: .7rem .8rem;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: linear-gradient(180deg, #fff9fb 0%, #fff3f8 100%);
 }
 
 .services {
