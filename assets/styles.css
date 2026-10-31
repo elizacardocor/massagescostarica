@@ -834,6 +834,22 @@ h3 {
   background: linear-gradient(180deg, #fff9fb 0%, #fff3f8 100%);
 }
 
+.home-gallery-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (min-width: 561px) and (max-width: 960px) {
+  .home-gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .home-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .services {
   padding: 1.3rem 0 0;
 }
