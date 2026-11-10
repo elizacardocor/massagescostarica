@@ -70,6 +70,8 @@ RewriteRule ^ https://tantramassagecostarica.com%{REQUEST_URI} [R=301,L]
 
 # Redirect removed duplicate service URL
 RewriteRule ^services/tantra-massage-costa-rica/?$ /services/tantric-massage-costa-rica/ [R=301,L]
+RewriteRule ^masseuses/violeta/?$ https://tantramassagecostarica.com/masseuses/ [R=301,L]
+RewriteRule ^es/masajistas/violeta/?$ https://tantramassagecostarica.com/es/masajistas/ [R=301,L]
 
 # Retired pages should disappear from search
 RewriteRule ^services/tantric-healing-therapy/?$ - [G,L]
